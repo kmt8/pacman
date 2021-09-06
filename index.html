@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loading Effect</title>
+    </head>
+    <style type="text/css">        
+
+        body{
+            background-color: #2f2f2f;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .pacman{
+            width: 70px;
+            height: 70px;
+            border-radius: 100px 100px 0 0;
+            margin-left: -10%;
+
+            position: relative;
+
+            transform-origin: bottom;
+
+            animation: mouth-top 0.5s infinite;
+            
+        }
+
+        .pacman,
+        .pacman::before{
+            width: 70px;
+            height: calc(70px / 2);
+            background-color: #fcba03;
+        }
+
+        .pacman::before{
+            content: '';
+            display: block;
+            margin-top: calc(70px / 2);
+            border-radius: 0 0 100px 100px;
+
+            position: absolute;
+
+            transform-origin: top;
+            transform: rotate(80deg);
+
+            animation: mouth-bottom 0.5s infinite;
+        }
+
+        .pacman::after{
+            content: '';            
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: block;
+
+            position: absolute;
+
+            margin-top: calc((70px / 2) - 10px);
+            margin-left: calc((70px / 2) - 10px);
+
+            transform-origin: center;
+
+            animation:  myani 0.5s infinite,
+                        ball 0.5s linear infinite;
+        }
+
+        @keyframes myani {
+            0%,100%{
+                transform: rotate(40deg);
+            }
+
+            50%{
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes mouth-top {
+            0%,100%{
+                transform: rotate(-40deg);
+            }
+
+            50%{
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes mouth-bottom {
+            0%,100%{
+                transform: rotate(80deg);
+            }
+
+            50%{
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes ball {
+            0%{ 
+                opacity: 0.7;
+                box-shadow: 
+                70px 0 0 0 #fff,
+                120px 0 0 0 #fff,
+                170px 0 0 0 #fff,
+                220px 0 0 0 #fff;
+            }
+            
+            100% { 
+                box-shadow: 
+                20px 0 0 0 #fff,
+                70px 0 0 0 #fff,
+                120px 0 0 0 #fff,
+                170px 0 0 0 #fff;
+            }        
+        }
+
+    </style>
+    <body>
+
+        <div class="pacman"></div>
+        
+    </body>
+</html>
